@@ -19,15 +19,13 @@ int	ft_putchar(char c)
 
 int	ft_putstr(char *s)
 {
-	int	i;
+	int	len;
 
 	if (!s)
 		return (write(1, "(null)", 6));
-	i = 0;
-	while (s[i])
-		i++;
-	write(1, s, i);
-	return (i);
+	len = ft_strlen(s);
+	write(1, s, len);
+	return (len);
 }
 
 static int	ft_numlen(int n)
