@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hgrandje <hgrandje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/19 08:15:35 by hgrandje          #+#    #+#             */
-/*   Updated: 2026/01/19 08:15:35 by hgrandje         ###   ########.fr       */
+/*   Created: 2026/01/19 08:14:17 by hgrandje          #+#    #+#             */
+/*   Updated: 2026/01/19 08:14:17 by hgrandje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int main()
-{
-	printf("hello my name is Hugo and i'm 22 years old\n");
-	printf("hello my name is %s and i'm %d years old\n", "Hugo", 22);
-}
+# include <stdarg.h>
+# include <unistd.h>
+
+int		ft_printf(const char *format, ...);
+int		ft_putchar(char c);
+int		ft_putstr(char *s);
+int		ft_putnbr(int n);
+int		ft_putnbr_unsigned(unsigned int n);
+int		ft_puthex_lower(unsigned int n);
+int		ft_puthex_upper(unsigned int n);
+int		ft_putptr(void *ptr);
+
+#endif

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: your_login <your_login@student.42.fr>     +#+  +:+       +#+         #
+#    By: hgrandje <hgrandje@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/XX/XX XX:XX:XX by your_login       #+#    #+#              #
-#    Updated: 2024/XX/XX XX:XX:XX by your_login      ###   ########.fr        #
+#    Created: 2026/01/19 08:14:30 by hgrandje          #+#    #+#              #
+#    Updated: 2026/01/19 08:14:32 by hgrandje         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,79 +17,37 @@ CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
 
-# Directories
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-# Source files
 SRCS = ft_printf.c \
-       ft_conversion.c \
-       ft_putchar.c \
-       ft_putstr.c \
-       ft_putnbr.c \
-       ft_putnbr_unsigned.c \
-       ft_puthex_lower.c \
-       ft_puthex_upper.c \
-       ft_putptr.c
+       ft_printf_utils.c \
+       ft_puthex.c
 
-# Object files
 OBJS = $(SRCS:.c=.o)
 
-# Header file
 HEADER = ft_printf.h
 
-# Colors for output
-GREEN = \033[0;32m
-RED = \033[0;31m
-RESET = \033[0m
-
-# Rules
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS)
-	@cp $(LIBFT) $(NAME)
-	@$(AR) $(NAME) $(OBJS)
-	@echo "$(GREEN)✓ $(NAME) created successfully!$(RESET)"
+	cp $(LIBFT) $(NAME)
+	$(AR) $(NAME) $(OBJS)
 
 $(LIBFT):
-	@echo "$(GREEN)Building libft...$(RESET)"
-	@make -C $(LIBFT_DIR)
+	make -C $(LIBFT_DIR)
 
 %.o: %.c $(HEADER)
-	@$(CC) $(CFLAGS) -c $< -o $@
-	@echo "$(GREEN)Compiled: $<$(RESET)"
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@$(RM) $(OBJS)
-	@make -C $(LIBFT_DIR) clean
-	@echo "$(RED)✓ Object files removed$(RESET)"
+	$(RM) $(OBJS)
+	make -C $(LIBFT_DIR) clean
 
 fclean: clean
-	@$(RM) $(NAME)
-	@make -C $(LIBFT_DIR) fclean
-	@echo "$(RED)✓ $(NAME) removed$(RESET)"
+	$(RM) $(NAME)
+	make -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
 .PHONY: all clean fclean re
-```
-
-## 📁 Structure du projet
-```
-ft_printf/
-├── Makefile
-├── ft_printf.h
-├── ft_printf.c
-├── ft_conversion.c
-├── ft_putchar.c
-├── ft_putstr.c
-├── ft_putnbr.c
-├── ft_putnbr_unsigned.c
-├── ft_puthex_lower.c
-├── ft_puthex_upper.c
-├── ft_putptr.c
-└── libft/
-    ├── Makefile
-    ├── libft.h
-    ├── ft_*.c
-    └── ...
