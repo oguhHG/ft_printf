@@ -6,7 +6,7 @@
 /*   By: hgrandje <hgrandje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 08:14:17 by hgrandje          #+#    #+#             */
-/*   Updated: 2026/01/19 08:23:28 by hgrandje         ###   ########.fr       */
+/*   Updated: 2026/01/19 09:29:55 by hgrandje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,3 +56,52 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
+/* #include <stdio.h>
+
+int	main(void)
+{
+	int	ret1;
+	int	ret2;
+
+	printf("=== Test %%c ===\n");
+	ret1 = ft_printf("ft: %c\n", 'A');
+	ret2 = printf("or: %c\n", 'A');
+	printf("ret: ft=%d, or=%d\n\n", ret1, ret2);
+
+	printf("=== Test %%s ===\n");
+	ret1 = ft_printf("ft: %s\n", "Hello");
+	ret2 = printf("or: %s\n", "Hello");
+	printf("ret: ft=%d, or=%d\n\n", ret1, ret2);
+
+	printf("=== Test %%d ===\n");
+	ret1 = ft_printf("ft: %d\n", -42);
+	ret2 = printf("or: %d\n", -42);
+	printf("ret: ft=%d, or=%d\n\n", ret1, ret2);
+
+	printf("=== Test %%u ===\n");
+	ret1 = ft_printf("ft: %u\n", 4294967295u);
+	ret2 = printf("or: %u\n", 4294967295u);
+	printf("ret: ft=%d, or=%d\n\n", ret1, ret2);
+
+	printf("=== Test %%x ===\n");
+	ret1 = ft_printf("ft: %x\n", 255);
+	ret2 = printf("or: %x\n", 255);
+	printf("ret: ft=%d, or=%d\n\n", ret1, ret2);
+
+	printf("=== Test %%X ===\n");
+	ret1 = ft_printf("ft: %X\n", 255);
+	ret2 = printf("or: %X\n", 255);
+	printf("ret: ft=%d, or=%d\n\n", ret1, ret2);
+
+	printf("=== Test %%p ===\n");
+	ret1 = ft_printf("ft: %p\n", (void *)&ret1);
+	ret2 = printf("or: %p\n", (void *)&ret1);
+	printf("ret: ft=%d, or=%d\n\n", ret1, ret2);
+
+	printf("=== Test %%%% ===\n");
+	ret1 = ft_printf("ft: %%\n");
+	ret2 = printf("or: %%\n");
+	printf("ret: ft=%d, or=%d\n", ret1, ret2);
+
+	return (0);
+} */
